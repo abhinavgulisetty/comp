@@ -60,33 +60,5 @@ int main(){
         }
         printf(" }\n");
     }
-
-    int set_size,combined[MAX_STATES],visited[MAX_STATES]={0},csize=0;
-
-    printf("\nEnter number of states in set: ");
-    scanf("%d",&set_size);
-    printf("Enter states: ");
-
-    for(int i=0;i<set_size;i++){
-        int st,cl[MAX_STATES],sz=0;
-        scanf("%d",&st);
-        epsilon_closure(st,cl,&sz);
-
-        for(int j=0;j<sz;j++)
-            if(!visited[cl[j]]){
-                visited[cl[j]]=1;
-                combined[csize++]=cl[j];
-            }
-    }
-
-    sort(combined,csize);
-
-    printf("e-closure(set) = { ");
-    for(int i=0;i<csize;i++){
-        printf("q%d",combined[i]);
-        if(i<csize-1) printf(", ");
-    }
-    printf(" }\n");
-
     return 0;
 }
